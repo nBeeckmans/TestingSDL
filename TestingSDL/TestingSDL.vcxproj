@@ -19,12 +19,15 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="controls.c" />
     <ClCompile Include="main.c" />
     <ClCompile Include="playable_character.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="character.h" />
+    <ClInclude Include="controls.h" />
     <ClInclude Include="engine_constants.h" />
+    <ClInclude Include="main.h" />
     <ClInclude Include="playable_character.h" />
     <ClInclude Include="shapes.h" />
   </ItemGroup>

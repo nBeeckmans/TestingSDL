@@ -39,6 +39,12 @@
     <ClInclude Include="playable_character.h">
       <Filter>Source Files\source\objects</Filter>
     </ClInclude>
+    <ClInclude Include="controls.h">
+      <Filter>Source Files\source</Filter>
+    </ClInclude>
+    <ClInclude Include="main.h">
+      <Filter>Source Files\source</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.c">
@@ -46,6 +52,9 @@
     </ClCompile>
     <ClCompile Include="playable_character.c">
       <Filter>Source Files\source\objects</Filter>
+    </ClCompile>
+    <ClCompile Include="controls.c">
+      <Filter>Source Files\source</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

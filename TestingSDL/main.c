@@ -3,11 +3,12 @@
 
 #include "engine_constants.h"
 #include "playable_character.h"
+#include "controls.h"
 
 
 SDL_Window *window = NULL;
 SDL_Renderer *renderer = NULL; 
-int is_running = FALSE; 
+extern int is_running = FALSE; 
 
 int inline initialize_renderer()
 {
@@ -72,19 +73,29 @@ int quit(void)
 	return 0; 
 }
 
-int main(void)
+void update_input(void)
+{
+	give_direction();
+}
+void update_game_state(void) 
+{
+	playable_character.mouvement(direction->x, direction->y); 
+}
+void render_game(void)
+{
+	playable_character.render(renderer); 
+}
+
+int main(int agrc, char** argv)
 {
 	is_running = start();
 	playable_character.initialize();
 
 	while(is_running) 
 	{
-		
-		for (int i = 0; i < 1000000; i++)
-		{
-
-		}
-		is_running = FALSE; 
+		update_input(); 
+		update_game_state(); 
+		//render_game(); 
 	}
 	return quit();
 }
