@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\source">
+      <UniqueIdentifier>{edc049d0-bf98-44d2-83c9-785b03320e1d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\sprites">
+      <UniqueIdentifier>{04264bf5-088d-40f3-bcfd-a7bf9534f4d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\sprites\playable_character">
+      <UniqueIdentifier>{697ea86a-38a7-4ffa-bb66-769bd7f9df4b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\source\objects">
+      <UniqueIdentifier>{60daf52d-1660-4b58-a53a-7e9654e0039d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="engine_constants.h">
+      <Filter>Source Files\source</Filter>
+    </ClInclude>
+    <ClInclude Include="shapes.h">
+      <Filter>Source Files\source\objects</Filter>
+    </ClInclude>
+    <ClInclude Include="character.h">
+      <Filter>Source Files\source\objects</Filter>
+    </ClInclude>
+    <ClInclude Include="playable_character.h">
+      <Filter>Source Files\source\objects</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.c">
+      <Filter>Source Files\source</Filter>
+    </ClCompile>
+    <ClCompile Include="playable_character.c">
+      <Filter>Source Files\source\objects</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
