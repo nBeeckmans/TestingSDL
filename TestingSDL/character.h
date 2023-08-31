@@ -7,11 +7,7 @@ typedef struct Character {
 	int hp;
 	float ms;
 	float as;
-	SDL_Surface* sprite; 
-
-	//checked at everyframe
-	float x;
-	float y;
+	struct SDL_Rect rect; 
 
 	struct Hitbox hitbox;
 	

@@ -3,7 +3,6 @@
 
 #include "shapes.h"
 
-extern struct Point *direction; 
-void give_direction(void);
+struct Point* give_direction(void);
 
 #endif

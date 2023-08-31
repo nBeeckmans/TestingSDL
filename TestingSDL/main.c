@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <SDL.h>
 
 #include "engine_constants.h"
@@ -9,6 +10,8 @@
 SDL_Window *window = NULL;
 SDL_Renderer *renderer = NULL; 
 extern int is_running = FALSE; 
+
+static struct Point* direction;
 
 int inline initialize_renderer()
 {
@@ -44,6 +47,13 @@ int inline initialize_window()
 	return TRUE;
 }
 
+void initialize_direction(void)
+{
+	direction = malloc(sizeof(direction)); 
+	direction->x = 0; 
+	direction->y = 0; 
+}
+
 int start(void)
 {
 	 
@@ -62,11 +72,14 @@ int start(void)
 		return FALSE; 
 	}
 
+	initialize_direction(); 
 	return TRUE; 
+
 }
 
 int quit(void)
 {
+	free(direction); 
 	SDL_DestroyRenderer(renderer); 
 	SDL_DestroyWindow(window); 
 	SDL_Quit(); 
@@ -75,11 +88,12 @@ int quit(void)
 
 void update_input(void)
 {
-	give_direction();
+	direction = give_direction();
+	
 }
 void update_game_state(void) 
 {
-	playable_character.mouvement(direction->x, direction->y); 
+	if(direction) playable_character.mouvement(direction->x, direction->y); 
 }
 void render_game(void)
 {
@@ -95,7 +109,8 @@ int main(int agrc, char** argv)
 	{
 		update_input(); 
 		update_game_state(); 
-		//render_game(); 
+		render_game(); 
+		//is_running = FALSE;
 	}
 	return quit();
 }

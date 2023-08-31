@@ -1,12 +1,12 @@
 #ifndef SHAPES
 #define SHAPES 
 
-typedef struct Point {
+typedef struct Point{
 	float x;
 	float y;
 }Point;
 
-typedef struct Hitbox {
+typedef struct Hitbox{
 	Point center; 
 	int width;
 	int height;
