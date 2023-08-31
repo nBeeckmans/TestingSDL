@@ -1,6 +1,12 @@
 #ifndef CHARACTER
 #include "shapes.h"
-#include <SDL.h>
+
+#ifdef __linux__ 
+    #include <SDL2/SDL.h>
+#elif _WIN32
+    #include <SDL.h>
+#else
+#endif
 
 typedef struct Character {
 	//at initialization ! 

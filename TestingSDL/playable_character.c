@@ -1,6 +1,13 @@
 #include <stdio.h>
-#include <SDL.h>
-#include <SDL_surface.h>
+
+#ifdef __linux__ 
+    #include <SDL2/SDL.h>
+	#include <SDL2/SDL_surface.h>
+#elif _WIN32
+    #include <SDL.h>
+	#include <SDL_surface.h>
+#else
+#endif
  
 #include "engine_constants.h"
 #include "shapes.h"

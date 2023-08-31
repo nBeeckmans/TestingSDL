@@ -1,6 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <SDL.h>
+
+
+#ifdef __linux__ 
+    #include <SDL2/SDL.h>
+#elif _WIN32
+    #include <SDL.h>
+#else
+#endif
 
 #include "engine_constants.h"
 #include "playable_character.h"
