@@ -12,7 +12,7 @@ void initialize(void);
 
 extern struct Character playable_character = {
 	.hp = 10,
-	.ms = 0,
+	.ms = 1,
 	.as = 0,
 
 	.rect = {.w = 10, .h = 10, .x = 10, .y = 10 },
@@ -29,8 +29,8 @@ extern struct Character playable_character = {
 
 void mouvement_func(float x, float y)
 {
-	playable_character.rect.x = playable_character.rect.x + (int)x * playable_character.ms;
-	playable_character.rect.y = playable_character.rect.y + (int)y * playable_character.ms;
+	playable_character.rect.x = playable_character.rect.x +(int) x * playable_character.ms;
+	playable_character.rect.y = playable_character.rect.y +(int) y * playable_character.ms;
 
 	playable_character.hitbox.center.x += (int)x * playable_character.ms;
 	playable_character.hitbox.center.y += (int)y * playable_character.ms;

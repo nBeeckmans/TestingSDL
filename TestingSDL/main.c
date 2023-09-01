@@ -110,6 +110,7 @@ int main(int agrc, char** argv)
 		update_input(); 
 		update_game_state(); 
 		render_game(); 
+		SDL_Delay(FRAME_RATE);
 		//is_running = FALSE;
 	}
 	return quit();

@@ -5,74 +5,62 @@
 #include "engine_constants.h"
 #include "main.h"
 
-#if 1
-#define WASD(c)
-void print(char c);
-#endif
-
-static struct Point* direction;
-
-void print(char c)
-{
-	fprintf(stderr, "%c", c);
-}
-
+static struct Point direction;
 
 void normalize()
 {
-	if (direction->x != 0 && direction->y != 0)
+	if (direction.x != 0 && direction.y != 0)
 	{
-		direction->x = 0.7f * direction->x;
-		direction->y = 0.7f * direction->y;
+		direction.x = 0.7f * direction.x;
+		direction.y = 0.7f * direction.y;
 	}
 }
 
-void inline update(union SDL_Event *event)  
+void inline update(union SDL_Event event)  
 {
-	if (event->key.keysym.sym == SDLK_UP)
+	if (event.key.keysym.sym == SDLK_w)
 	{
-		direction->y = -1; 
-		WASD('W'); 
+		direction.y = -1; 
+		return; 
 	}
-	if (event->key.keysym.sym == SDLK_DOWN)
+	if (event.key.keysym.sym == SDLK_s)
 	{
-		direction->y = 1;
-		WASD('S');
+		direction.y = 1;
+		return; 
 	}
-	if (event->key.keysym.sym == SDLK_LEFT)
+	if (event.key.keysym.sym == SDLK_a)
 	{
-		direction->x = -1;
-		WASD('A');
+		direction.x = -1;
+		return;
 	}
-	if (event->key.keysym.sym == SDLK_RIGHT)
+	if (event.key.keysym.sym == SDLK_d)
 	{
-		direction->x = 1;
-		WASD('D');
+		direction.x = 1;
+		return;
 	}
+	direction.x = 0; 
+	direction.y = 0; 
+	return; 
 }
 
 struct Point* give_direction(void)
 {
-	free(direction); 
 	union SDL_Event event;
-	direction = malloc(sizeof(direction)); 
+	direction.x = 0; 
+	direction.y = 0; 
 	while (SDL_PollEvent(&event))
 	{
 		if (event.type == SDL_KEYDOWN)
 		{
 			if (event.key.keysym.sym != SDLK_ESCAPE) {
-				update(&event);
+				update(event);
 				normalize();
 			}
 			else {
-				is_running = FALSE; 
-				free(direction); 
+				is_running = FALSE;
 				return NULL;
 			}
-			
 		}
-		direction->x = 0;
-		direction->y = 0;
 	}
-	return direction;
+	return &direction;
 }
